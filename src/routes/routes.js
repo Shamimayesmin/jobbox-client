@@ -40,6 +40,7 @@ const routes = createBrowserRouter([
       {
         path: "/register",
         element: (
+          // <AccountCreator />
           <PrivateRoute>
             <AccountCreator />
           </PrivateRoute>
