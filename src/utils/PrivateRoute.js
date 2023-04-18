@@ -8,9 +8,9 @@ const PrivateRoute = ({ children }) => {
   const {isLoading, user:{email}} = useSelector((state) => state.auth)
   
   
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
+  if (isLoading) {
+    return <Loading />;
+  }
 
   if (!isLoading && !email) {
     return <Navigate to='/login' state={{ path: pathname }} />;
