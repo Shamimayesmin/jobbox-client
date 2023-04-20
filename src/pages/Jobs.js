@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useGetJobsQuery } from "../features/job/jobApi";
 
 const Jobs = () => {
-  const navigate = useNavigate();
-  const {data, isLoading, isError} = useGetJobsQuery();
+  // const navigate = useNavigate();
+  // const {data, isLoading, isError} = useGetJobsQuery();
   return (
     <div className='pt-14'>
       <div className='bg-primary/10 p-5 rounded-2xl'>
