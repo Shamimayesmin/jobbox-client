@@ -34,6 +34,11 @@ const JobDetails = () => {
     return;
   }
 
+  if(user.role === ""){
+    navigate("/register");
+    return;
+  }
+
   const handleApply = ()=>{
     const data = {
       userId : user._id,

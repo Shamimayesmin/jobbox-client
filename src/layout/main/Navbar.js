@@ -9,6 +9,7 @@ import { logout } from "../../features/auth/authSlice";
 const Navbar = () => {
 	const { pathname } = useLocation();
 	const { user: {email , role}} = useSelector((state) => state.auth);
+	console.log(email,role);
 	const dispatch = useDispatch();
 
 	const handleSignOut = () => {
