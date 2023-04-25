@@ -3,7 +3,7 @@ import React from "react";
 import meeting from "../assets/meeting.jpg";
 import { BsArrowRightShort, BsArrowReturnRight } from "react-icons/bs";
 import { useNavigate, useParams } from "react-router-dom";
-import { useJobByIdQuery } from "../features/job/jobApi";
+import { useApplyJobMutation, useJobByIdQuery } from "../features/job/jobApi";
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 const JobDetails = () => {
@@ -28,6 +28,8 @@ const JobDetails = () => {
     queries,
     _id,
   } = data?.data || {};
+
+  const [apply] = useApplyJobMutation()
   
   if(user.role === "employer"){
     toast.error("We need a candidate account to apply");
@@ -45,6 +47,7 @@ const JobDetails = () => {
       email : user.email,
       jobId : _id,
     }
+    apply(data)
     console.log(data);
   }
   return (
