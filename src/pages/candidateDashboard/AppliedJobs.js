@@ -4,12 +4,14 @@ import JobCard from "../../components/reusable/JobCard";
 import Loading from "../../components/reusable/Loading";
 import { useGetAppliedJobsQuery } from "../../features/job/jobApi";
 
-const AppliedJobs = () => {
+
+ const AppliedJobs = () => {
   const {
     user: { email },
   } = useSelector((state) => state.auth);
   const { data, isLoading } = useGetAppliedJobsQuery(email);
 
+  // console.log(data);
   if (isLoading) {
     return <Loading />;
   }
@@ -21,6 +23,8 @@ const AppliedJobs = () => {
         {data?.data?.map((job) => (
           <JobCard jobData={job} />
         ))}
+
+        
       </div>
     </div>
   );
