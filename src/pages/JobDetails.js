@@ -7,6 +7,7 @@ import {
 	useApplyJobMutation,
 	useJobByIdQuery,
 	useQuestionMutation,
+  useReplyMutation,
 } from "../features/job/jobApi";
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
@@ -48,11 +49,12 @@ const JobDetails = () => {
   
 	const [apply] = useApplyJobMutation();
 	const [sendQuestion] = useQuestionMutation();
+  const [sendReply] = useReplyMutation()
 
-	// if (user.role === "employer") {
-	// 	toast.error("We need a candidate account to apply");
-	// 	return;
-	// }
+	if (user.role === "employer") {
+		toast.error("We need a candidate account to apply");
+		return;
+	}
 
 	if (user.role === "") {
 		navigate("/register");
@@ -66,11 +68,11 @@ const JobDetails = () => {
 			jobId: _id,
 		};
 		apply(data);
-		console.log(data);
+		// console.log(data);
 	};
 
 	const handleQuestion = (data) => {
-		console.log(data);
+		// console.log(data);
 		const queData = {
 			...data,
 			userId: user._id,
@@ -87,6 +89,7 @@ const JobDetails = () => {
       reply,
       userId : id,
     }
+    sendReply(data)
     console.log(data);
   }
 	return (
