@@ -28,7 +28,7 @@ const JobDetails = () => {
 		formState: { errors },
 	} = useForm();
 
-	const { data, isLoading, isError } = useJobByIdQuery(id);
+	const { data, isLoading, isError } = useJobByIdQuery(id , {pollingInterval : 1000});
 
 	const {
 		companyName,
@@ -90,6 +90,7 @@ const JobDetails = () => {
       userId : id,
     }
     sendReply(data)
+    
     console.log(data);
   }
 	return (
