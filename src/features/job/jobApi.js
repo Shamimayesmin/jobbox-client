@@ -48,12 +48,12 @@ const jobApi = apiSlice.injectEndpoints({
             }),
             
         }),
-        // jobById : builder.query({
-        //     query : (id) =>({
-        //         url : `/job/${id}`,    
-        //     }),
-        //     providesTags : ["Job"]
-        // }),
+        jobById : builder.query({
+            query : (id) =>({
+                url : `/job/${id}`,    
+            }),
+            providesTags : ["Job"]
+        }),
         
     }),
 });
